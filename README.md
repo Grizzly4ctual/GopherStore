@@ -14,6 +14,8 @@ Gopher Store is a lightweight relational database crafted entirely in Go, design
 
 - License
 
+---
+
 # Installation
 ## Prerequisites
 - Go (version 1.17 or newer)
@@ -43,6 +45,8 @@ To start the server, simply run:
 ./gopherstore
 ```
 
+---
+
 # Features
 
 Gopher Store is designed as a practical, hands-on relational database in Go. Here are the updated features it supports:
@@ -56,7 +60,26 @@ Gopher Store is designed as a practical, hands-on relational database in Go. Her
 - **Basic Query Processing:** Handles straightforward queries and simple WHERE conditions for data filtering.
 - **Planned Enhancements:** Future updates will include support for more data types, joins, advanced queries, and improved indexing.
 
+---
 
+# Roadmap
+
+- **Query Processing:** Plans are underway to introduce more advanced query capabilities, enabling users to perform complex data retrieval and manipulation[#].
+- **Ongoing Improvements:** Continuous work is focused on fixing bugs and enhancing the stability of the system as new features are developed and integrated[#].
+
+---
+
+## Contributing
+
+If you’d like to help improve Gopher Store, contributions are always welcome! Here’s how you can get involved:
+
+1. **Fork the repository** on GitHub.
+2. **Create a feature branch:** ```git checkout -b feature/YourFeature ```
+3. **Commit your changes:** ``` git commit -am "Add new feature"```
+4. **Push your branch:** ``` git push origin feature/YourFeature ```
+5. **Open a Pull Request** describing what you’ve changed and why.
+
+---
 
 # Supported Commands
 
@@ -72,6 +95,8 @@ Gopher Store is designed as a practical, hands-on relational database in Go. Her
 | COMMIT     | Save all changes made in the current transaction    |
 | ROLLBACK   | Undo all changes made in the current transaction    |
 | QUIT/EXIT  | Exit the database shell                             |
+
+---
 
 # License
 
