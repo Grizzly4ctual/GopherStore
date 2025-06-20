@@ -53,6 +53,55 @@ func (fl *FreeList) Add(freed []uint64) {
 	}
 }
 
+func (fl *FreeList) loadCache() {
+	if len(fl.nodes) > 0 {
+		return
+	}
+
+	curr := fl.head
+	if curr == 0 {
+		fl.total = 0
+		fl.offset = 0
+		return
+	}
+
+	var nodes []uint64
+	for curr != 0 {
+		nodes = append(nodes, curr)
+		node := fl.get(curr)
+		curr = flnNext(node)
+	}
+
+	for i := 0; i < len(nodes)/2; i++ {
+		nodes[i], nodes[len(nodes)-1-i] = nodes[len(nodes)-1-i], nodes[i]
+	}
+
+	fl.nodes = nodes
+	headNode := fl.get(fl.head)
+	fl.total = flnSize(headNode)
+	fl.offset = 0
+}
+
+func flPop1(fl *FreeList) uint64 {
+	if fl.total == 0 {
+		return 0
+	}
+
+	assert(fl.offset < flnSize(fl.get(fl.nodes[0])))
+	ptr, ver := flnItem(fl.get(fl.nodes[0]), fl.offset)
+	if versionBefore(fl.minReader, ver) {
+		// cannot use; possibly reachable by the minimum version reader
+		return 0
+	}
+	fl.offset++
+	fl.total--
+	if fl.offset >= flnSize(fl.get(fl.nodes[0])) {
+		fl.nodes = fl.nodes[1:]
+		fl.offset = 0
+	}
+	return ptr
+}
+
 func versionBefore(u uint64, ver uint64) bool {
 	return int64(u-ver) < 0
 }
