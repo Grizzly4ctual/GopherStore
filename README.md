@@ -42,7 +42,7 @@ go build -o gopherdb
 To start the server, simply run:
 
 ```
-./gopherstore
+./gopherdb
 ```
 
 ---
