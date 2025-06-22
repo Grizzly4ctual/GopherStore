@@ -1,7 +1,7 @@
 package main
 
 import (
-	"gopherDb/database"
+	"gopherDB/database"
 )
 
 func main() {
