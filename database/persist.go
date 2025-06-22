@@ -9,7 +9,7 @@ import (
 	"sync"
 )
 
-const DB_SIG = "AtomixDB"
+const DB_SIG = "GopherDB"
 
 const (
 	PROT_READ  = 0x1
