@@ -1,7 +1,7 @@
 package database
 
 import (
-	"atomixDB/database/helper"
+	"gopherDB/database/helper"
 	"bufio"
 	"fmt"
 	"strings"
