@@ -35,7 +35,7 @@ Install dependencies and compile the project with:
 
 ```
 go mod tidy
-go build -o gopherstore
+go build -o gopherdb
 ```
 
 ### Running Gopher Store
